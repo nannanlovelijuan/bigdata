@@ -1,0 +1,18 @@
+spring:
+  profiles:
+    active: dev
+  http:
+    multipart:
+      enabled: true
+      max-file-size: 500MB
+      max-request-size: 500MB
+  servlet:
+    multipart:
+      max-file-size: 500MB
+      max-request-size: 500MB
+server:
+  tomcat:
+      min-spare-threads: 20
+      max-threads: 200
+      max-connections: 100
+  port: 8080
