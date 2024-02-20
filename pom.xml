@@ -11,6 +11,10 @@
 	<groupId>com.nan</groupId>
 	<artifactId>bigdata</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
+	<packaging>pom</packaging>
+	<modules>
+		<module>hadoop</module>
+	</modules>
 	<name>bigdata</name>
 	<description>Demo project for Spring Boot</description>
 	<properties>
