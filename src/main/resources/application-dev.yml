@@ -1,18 +1,77 @@
 spring:
-  profiles:
-    active: dev
-  http:
-    multipart:
-      enabled: true
-      max-file-size: 500MB
-      max-request-size: 500MB
-  servlet:
-    multipart:
-      max-file-size: 500MB
-      max-request-size: 500MB
-server:
-  tomcat:
-      min-spare-threads: 20
-      max-threads: 200
-      max-connections: 100
-  port: 8080
+  datasource:
+    dynamic:
+      primary: bigdata
+      type: com.zaxxer.hikari.HikariDataSource
+      datasource:
+        bigdata:
+          driver-class-name: com.mysql.cj.jdbc.Driver
+          url: jdbc:mysql://192.168.12.41:3306/ezp-bigdata?autoReconnect=true&useSSL=false&useLegacyDatetimeCode=false&serverTimezone=GMT%2b8&&characterEncoding=utf-8
+          username: ezwrite
+          password: 33KlsXareQbsbrfhq2eJ
+        airflow:
+          driver-class-name: com.mysql.cj.jdbc.Driver
+          url: jdbc:mysql://192.168.12.81:3307/airflow2?autoReconnect=true&useSSL=false&useLegacyDatetimeCode=false&serverTimezone=GMT%2b8&&characterEncoding=utf-8
+          username: ezadmin
+          password: 20150228
+
+upload:
+  file-path: /data/files/
+  local-path: /Users/zk/Downloads/data/
+  local-path-zip: /Users/zk/Downloads/task_zip_file/
+  report-detail: detail
+  report-summary: summary
+airflow:
+  username: admin
+  password: 20150228
+  url: http://192.168.12.81:8088/api/v1/
+  taskType:
+    1: "BonusBankReportT_pro"
+    2: "SkyeyeReportT_pro"
+    3: "SkyeyeCrowdParserT_pro"
+    4: "SkyeyeReportT_pro"
+    5: "DspTagReportT_pro"
+    101: "DqCheckT_q1"
+    102: "DqCheckT_q1"
+clickhouse:
+  bigdata:
+    url: jdbc:clickhouse://192.168.12.46:8082
+    token: 6295e8594ddd4518bbee685b6de7df9a
+    ckMangerUrl: http://192.168.12.46:8080
+    ckMangerCookie: opt.authorize=008bb5c87eda4e2daa97b6c7b7a31169
+  fe:
+    url: jdbc:clickhouse://192.168.12.46:8082/ezp_crm
+    token: 6295e8594ddd4518bbee685b6de7df9a
+    ckMangerUrl: http://192.168.12.46:8080
+    ckMangerCookie: opt.authorize=008bb5c87eda4e2daa97b6c7b7a31169
+shardgrpid:
+  exclude: [10010,10009,10006,40000,40023,40019,40011,40007,40025,40017]
+
+# ===== 自定义swagger配置 ===== #
+swagger:
+  enable: true
+hdfs:
+  path: hdfs://cdh02:8020
+  username: hadoop
+  serverPath: /data
+chdfs:
+  appId: 1254368623
+  url: ofs://f4mzuis0weh-2Vj8.chdfs.ap-beijing.myqcloud.com
+  tmp-cache: /data/chdfs_tmp_cache
+  serverPath: /data
+
+msg:
+  sso_app_secret: 836d91ca4c8ea07926099ca4ab3fd8ff
+  web_api_token: ezpasd334remaquqkjam,xa^^^@#$!@@
+
+qywx:
+  url: https://qyapi.weixin.qq.com/cgi-bin/webhook/send
+  key: key=28c6192d-3763-43e4-98ab-8c6ee3596720
+
+messgecenter:
+  url: http://192.168.12.127:9496
+cmdb:
+  url: https://cmdb.ezrpro.com/
+litebrand:
+  prodShardGrpId: 80002
+  testShardGrpId: 80001

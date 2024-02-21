@@ -1,0 +1,85 @@
+spring:
+  profiles:
+    active: dev
+  http:
+    multipart:
+      enabled: true
+      max-file-size: 500MB
+      max-request-size: 500MB
+  servlet:
+    multipart:
+      max-file-size: 500MB
+      max-request-size: 500MB
+server:
+  tomcat:
+      min-spare-threads: 20
+      max-threads: 200
+      max-connections: 100
+  port: 8072
+upload:
+  file-path: /data/files/
+  local-path: /data/hdfs/tmp_file_down/
+  local-path-zip: /data/hdfs/task_zip_file/
+  report-detail: detail
+  report-summary: summary
+
+hdfs:
+  path: hdfs://cdh02:8020
+  username: hadoop
+  serverPath: /data
+chdfs:
+  appId: 1254368623
+  url: ofs://f4mzuis0weh-2Vj8.chdfs.ap-beijing.myqcloud.com
+  tmp-cache: /data/chdfs_tmp_cache
+  serverPath: /data
+
+airflow:
+  username: admin
+  password: 20150228
+  #url: http://192.168.12.81:8088/api/v1/
+  url: http://172.21.65.74:8088/api/v1/
+  taskType:
+    1: "BonusBankReportT_q1"
+    2: "SkyeyeReportT_q1"
+    3: "SkyeyeCrowdParserT_q1"
+    4: "SkyeyeReportT_q1"
+    5: "DspTagReportT_q1"
+    101: "DqCheckT_pro"
+    102: "DqCheckT_pro"
+  disableScheduleAfterHour: 22
+#mybatis-plus:
+#  configuration:
+#    log-impl: org.apache.ibatis.logging.slf4j.Slf4jImpl
+mybatis-plus:
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+logging:
+  level:
+    root: info
+#logging:
+#  level:
+#    com:
+#      ezr:
+#        bigdata:
+#          mapper: debug
+swagger:
+  application-name: ${spring.application.name}
+  application-version: 1.0
+  application-description: springfox swagger 3.0整合Demo
+  try-host: http://localhost:${server.port}
+elasticsearch:
+  schema: http
+  address: 192.168.12.133:9200
+  #address: 192.168.12.183:9200
+  connectTimeout: 5000
+  socketTimeout: 5000
+  connectionRequestTimeout: 5000
+  maxConnectNum: 100
+  maxConnectPerRoute: 100
+msg:
+  sso_app_secret: 836d91ca4c8ea07926099ca4ab3fd8ff
+  web_api_token: ezpasd334remaquqkjam,xa^^^@#$!@@
+clickhouse:
+  url: http://192.168.12.46:8082
+  ckMangerUrl: http://192.168.12.46:8080
+  token: opt.authorize=008bb5c87eda4e2daa97b6c7b7a31169
