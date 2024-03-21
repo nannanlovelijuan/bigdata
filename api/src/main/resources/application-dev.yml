@@ -14,7 +14,8 @@ spring:
           url: jdbc:mysql://192.168.12.81:3307/airflow2?autoReconnect=true&useSSL=false&useLegacyDatetimeCode=false&serverTimezone=GMT%2b8&&characterEncoding=utf-8
           username: ezadmin
           password: 20150228
-
+server:
+  port: 80
 upload:
   file-path: /data/files/
   local-path: /Users/zk/Downloads/data/

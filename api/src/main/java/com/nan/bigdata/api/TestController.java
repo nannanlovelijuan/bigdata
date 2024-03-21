@@ -1,4 +1,4 @@
- package com.nan.bigdata.test;
+ package com.nan.bigdata.api;
 
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;

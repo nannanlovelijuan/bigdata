@@ -1,13 +1,13 @@
-package com.nan.bigdata;
+package com.nan.bigdata.api;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class BigdataApplication {
+public class ApiApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(BigdataApplication.class, args);
+		SpringApplication.run(ApiApplication.class, args);
 	}
 
 }
